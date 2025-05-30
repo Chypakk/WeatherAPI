@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64e06493-b640-46a1-953f-cb452471348e" name="Changes" comment="Создание базового API погоды">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/chypakk/model/WeatherRecord.java" afterDir="false" />
+    <list default="true" id="64e06493-b640-46a1-953f-cb452471348e" name="Changes" comment="Переписывание ответа с помощью record">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/chypakk/handler/WeatherHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chypakk/handler/WeatherHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chypakk/model/WeatherResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chypakk/model/WeatherResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/chypakk/service/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/chypakk/service/WeatherService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,12 +93,32 @@
       <option name="project" value="LOCAL" />
       <updated>1748522045266</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Переписывание ответа с помощью record">
+      <option name="closed" value="true" />
+      <created>1748601460946</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748601460946</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Создание базового API погоды" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создание базового API погоды" />
+    <MESSAGE value="Переписывание ответа с помощью record" />
+    <option name="LAST_COMMIT_MESSAGE" value="Переписывание ответа с помощью record" />
   </component>
 </project>

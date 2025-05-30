@@ -10,6 +10,7 @@ import org.chypakk.service.WeatherService;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +36,8 @@ public class WeatherHandler implements HttpHandler {
             }
 
             WeatherRecord weatherResponse = weatherService.getWeather(city);
+
+            exchange.getResponseHeaders().set("Content-Type", "application/json; charset=UTF-8");
             sendResponse(exchange, 200, objectMapper.writeValueAsString(weatherResponse));
 
         } catch (Exception e){
@@ -46,7 +49,7 @@ public class WeatherHandler implements HttpHandler {
     private void sendResponse(HttpExchange exchange, int code, String message) throws IOException {
         exchange.sendResponseHeaders(code, message.getBytes().length);
         try (OutputStream stream = exchange.getResponseBody()){
-            stream.write(message.getBytes());
+            stream.write(message.getBytes(StandardCharsets.UTF_8));
         }
     }
 
