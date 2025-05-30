@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.chypakk.WeatherServer;
+import org.chypakk.model.WeatherRecord;
 import org.chypakk.model.WeatherResponse;
 import org.chypakk.service.WeatherService;
 
@@ -33,10 +34,11 @@ public class WeatherHandler implements HttpHandler {
                 sendResponse(exchange, 400, "Параметр city обязателен");
             }
 
-            WeatherResponse weatherResponse = weatherService.getWeather(city);
+            WeatherRecord weatherResponse = weatherService.getWeather(city);
             sendResponse(exchange, 200, objectMapper.writeValueAsString(weatherResponse));
 
         } catch (Exception e){
+            System.out.println(e.getMessage());
             sendResponse(exchange, 500, "Ошибка сервера: " + e.getMessage());
         }
     }

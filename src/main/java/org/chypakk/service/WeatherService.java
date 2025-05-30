@@ -1,8 +1,7 @@
 package org.chypakk.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.chypakk.model.WeatherResponse;
+import org.chypakk.model.WeatherRecord;
 
 import java.io.IOException;
 import java.net.URI;
@@ -15,7 +14,7 @@ public class WeatherService {
     private final String API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric&lang=ru";
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public WeatherResponse getWeather(String city) throws IOException, InterruptedException {
+    public WeatherRecord getWeather(String city) throws IOException, InterruptedException {
         String url = String.format(API_URL, city, API_TOKEN);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
@@ -24,11 +23,8 @@ public class WeatherService {
 
         if (response.statusCode() != 200) throw new RuntimeException("Ошибка API: " + response.body());
 
-        JsonNode root = objectMapper.readTree(response.body());
-        String description = root.path("weather").get(0).path("description").asText();
-        double temp = root.path("main").path("temp").asDouble();
-
-        return new WeatherResponse(city, description, temp);
+        String json = response.body();
+        return objectMapper.readValue(json, WeatherRecord.class);
     }
 
 }
